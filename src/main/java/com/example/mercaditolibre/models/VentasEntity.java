@@ -42,12 +42,13 @@ public class VentasEntity {
     @Column(name= "tipo_pago", nullable = false)
     private String tipoPago;
 
+    @Column(name = "email")
+    private String email;
+
     @Column(name = "estado", nullable = false)
     private String estado = "PENDIENTE";
 
 
-    // Relación FK
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "producto_id")
+    @OneToMany(mappedBy = "venta", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<DetalleVentaEntity> detallesVenta = new ArrayList<>();
 }

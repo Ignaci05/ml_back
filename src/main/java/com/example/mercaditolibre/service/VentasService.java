@@ -32,13 +32,15 @@ public class VentasService {
     }
 
     public List<VentasEntity> getVentaByEmail(String email) {
-        return ventasRepository.findAll();
+        return ventasRepository.findByEmail(email);
     }
 
     @Transactional
     public VentasEntity createVenta(VentasEntity ventaRequest, String email) {
         ventaRequest.setFechaVenta(LocalDateTime.now());
         ventaRequest.setEstado("PENDIENTE");
+        ventaRequest.setTipoPago("Stripe");
+        ventaRequest.setEmail(email);
 
         double total = 0.0;
 

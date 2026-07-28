@@ -75,7 +75,7 @@ public class SecurityConfig {
                 .requestMatchers(HttpMethod.DELETE, "/api/proveedores/**").hasAuthority("ROLE_ADMIN")
 
                 .requestMatchers(HttpMethod.POST, "/api/ventas/crear").hasAnyAuthority("ROLE_CLIENTE", "ROLE_ADMIN")
-                .requestMatchers(HttpMethod.POST, "/api/ventas/confirmar-pago/**").hasAuthority("ROLE_ADMIN")
+                .requestMatchers(HttpMethod.POST, "/api/ventas/confirmar-pago/**").hasAnyAuthority("ROLE_CLIENTE", "ROLE_ADMIN")
                 .requestMatchers(HttpMethod.POST, "/api/ventas").hasAnyAuthority("ROLE_CLIENTE", "ROLE_ADMIN")
                 .requestMatchers(HttpMethod.GET, "/api/ventas").hasAuthority("ROLE_ADMIN")
                 .requestMatchers(HttpMethod.GET, "/api/ventas/mis-compras").hasAuthority("ROLE_CLIENTE")
