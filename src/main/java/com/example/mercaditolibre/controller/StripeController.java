@@ -58,13 +58,17 @@ public class StripeController {
             );
         });
 
+        String baseUrl = (frontendUrl != null && frontendUrl.endsWith("/")) 
+            ? frontendUrl.substring(0, frontendUrl.length() - 1) 
+            : (frontendUrl != null ? frontendUrl : "http://localhost:5173");
+
         SessionCreateParams params = SessionCreateParams.builder()
         .setMode(SessionCreateParams.Mode.PAYMENT)
         .addPaymentMethodType(SessionCreateParams.PaymentMethodType.CARD)
         .addAllLineItem(lineItems)
         .setClientReferenceId(String.valueOf(venta.getId()))
-        .setSuccessUrl(frontendUrl + "/?payment=success&venta_id=" + venta.getId())
-        .setCancelUrl(frontendUrl + "/")
+        .setSuccessUrl(baseUrl + "/?payment=success&venta_id=" + venta.getId())
+        .setCancelUrl(baseUrl + "/")
         .build();
 
         Session session = Session.create(params);
