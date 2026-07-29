@@ -21,7 +21,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 
 @RestController
 @RequestMapping("/api/categorias")
-@CrossOrigin(origins = "http://localhost:3000")
 @RequiredArgsConstructor
 public class CategoriaController {
     

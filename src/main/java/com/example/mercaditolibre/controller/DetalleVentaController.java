@@ -21,7 +21,6 @@ import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequestMapping("/api/detalles-venta")
-@CrossOrigin(origins = "http://localhost:3000")
 @RequiredArgsConstructor
 public class DetalleVentaController {
     

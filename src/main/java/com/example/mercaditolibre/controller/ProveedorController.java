@@ -22,7 +22,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 
 @RestController
 @RequestMapping("/api/proveedores")
-@CrossOrigin(origins = "http://localhost:3000")
 @RequiredArgsConstructor
 public class ProveedorController {
     private final ProveedorService proveedorService;
