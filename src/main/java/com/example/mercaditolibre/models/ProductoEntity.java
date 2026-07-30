@@ -36,7 +36,7 @@ public class ProductoEntity {
     @Column(name = "stock", nullable = false)
     private int stock;
 
-    @Column(name = "imagen_url", nullable = true)
+    @Column(name = "imagen_url", nullable = true, columnDefinition = "TEXT")
     private String imagenUrl;
 
     @Column (name = "activo", nullable = false) 
